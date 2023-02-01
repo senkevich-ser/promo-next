@@ -1,12 +1,12 @@
 import { ButtonProps } from "./Button.props";
 import styles from "./Button.module.css";
-import Image from 'next/image';
+import ArrowIcon from "./arrow.svg";
 import cn from "classnames";
 
 export const Button = ({
   children,
   appearance,
-  arrow='none',
+  arrow = "none",
   className,
   ...props
 }: ButtonProps): JSX.Element => {
@@ -20,10 +20,15 @@ export const Button = ({
         {...props}
       >
         {children}
-        {arrow!='none'&&<span className={cn(styles.arrow, className, {
-          [styles.down]: arrow == "down",
-        })}><Image src="../../arrow.svg" alt="#" width={6}
-        height={10}/></span>}
+        {arrow != "none" && (
+          <span
+            className={cn(styles.arrow, className, {
+              [styles.down]: arrow == "down",
+            })}
+          >
+           <ArrowIcon /> 
+          </span>
+        )}
       </button>
     </>
   );
