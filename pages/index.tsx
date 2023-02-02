@@ -1,4 +1,4 @@
-import { Htag, Paragraph,Button } from "@/components";
+import { Htag, Paragraph,Button,Tag } from "@/components";
 
 export default function Home(): JSX.Element {
   return (
@@ -9,6 +9,11 @@ export default function Home(): JSX.Element {
       <Paragraph size='l'>{'Большой'}</Paragraph>
       <Paragraph size={'m'}>{'Средний'}</Paragraph>
       <Paragraph size={'s'}>{'Маленький'}</Paragraph>
+      <Tag size={'l'} color={'grey'}>Кнопка</Tag>
+      <Tag size={'s'} color={'ghost'}>Кнопка</Tag>
+      <Tag size={'s'} color={'green'}>Кнопка</Tag>
+      <Tag size={'l'} color={'red'}>Кнопка</Tag>
+      <Tag size={'s'} color={'primary'}>Кнопка</Tag>
     </>
   );
 }
