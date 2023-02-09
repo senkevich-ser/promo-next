@@ -1,13 +1,12 @@
 .tag{
-    
     display: inline-block;
-    
+
+    box-sizing: border-box;
     margin-right: 5px;
     padding: 5px 10px;
     
     
     border-radius: 20px;
-    box-sizing: border-box;
 
     
     
