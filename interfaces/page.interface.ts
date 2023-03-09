@@ -1,5 +1,5 @@
 
-export enum TopLevelCategories{
+export enum TopLevelCategory{
     Courses,
     Services,
     Books,
@@ -55,7 +55,7 @@ export enum TopLevelCategories{
         tagsTitle: string;
         metaTitle: string;
         metaDescription: string;
-        firstCategory: TopPageModel;
+        firstCategory: TopLevelCategory;
         advantages: TopPageAdvantage[];
         createdAt: Date;
         updatedAt: Date;
