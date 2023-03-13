@@ -6,7 +6,7 @@
   gap: 20px;
   align-items: center;
 
-  margin-bottom: 20px;
+  margin-top: 20px;
 
   font-size: 18px;
   font-weight: 500;
@@ -28,18 +28,39 @@
   margin-left: 12px;
   padding-left: 32px;
   border-left: 1px solid #dfdfdf;
+  margin-top: 15px;
 }
 
 .secondLevel {
-  margin-top: 10px;
+  margin-bottom: 10px;
 
   font-size: 12px;
   font-weight: 300;
   line-height: 16px;
   color: var(--grey-dark);
   text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.secondLevelBlockOpened:last-child{
+  margin-bottom: 20px;
 }
 
 .thirdLevel {
   display: block;
+
+margin-bottom: 10px;
+
+font-size: 14px;
+  font-weight: 500;
+line-height: 19px;
+cursor: pointer;
+color:var(--grey-dark);
+}
+
+.thirdLevelActive,
+.thirdLevel:hover{
+  color:var(--primary);
+
 }
