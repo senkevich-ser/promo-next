@@ -1,6 +1,45 @@
-.firstLevel{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap:20px;  
+.firstLevel {
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  color: var(--grey-dark);
 }
 
+.firstLevelActiv,
+.firstLevel:hover {
+  color: var(--primary);
+}
+
+.firstLevelActiv svg,
+.firstLevel:hover svg {
+  fill: var(--primary);
+}
+
+.secondBlock {
+  margin-left: 12px;
+  padding-left: 32px;
+  border-left: 1px solid #dfdfdf;
+}
+
+.secondLevel {
+  margin-top: 10px;
+
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  color: var(--grey-dark);
+  text-transform: uppercase;
+}
+
+.thirdLevel {
+  display: block;
+}
