@@ -1,6 +1,5 @@
 import styles from "./Menu.module.css";
 import cn from "classnames";
-import { format } from "date-fns";
 import { useContext } from "react";
 import { AppContext } from "@/context/app.context";
 import { FirstLevelMenuItem, PageItem } from "@/interfaces/menu.interface";
@@ -10,6 +9,7 @@ import BooksIcon from "./icons/books.svg";
 import ProductsIcon from "./icons/products.svg";
 import { TopLevelCategory } from "@/interfaces/page.interface";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
   {
@@ -41,6 +41,19 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 export const Menu = (): JSX.Element => {
   const { menu, firstCategory, setMenu } = useContext(AppContext);
 
+  const router = useRouter();
+
+  const secondLevelOpen=(secondCtegory:string)=>{
+    setMenu && setMenu(menu.map(m=>{
+      if(m._id.secondCategory==secondCtegory){
+        m.isOpened=!m.isOpened;
+      }
+      return m;
+    }));
+  };
+
+
+
   const buildFirstLevel = () => {
     return (
       <>
@@ -66,16 +79,20 @@ export const Menu = (): JSX.Element => {
   const buildSecondLevel = (menuItem:FirstLevelMenuItem) => {
     return (
       <div className={styles.secondBlock}>
-      {menu.map(m=>(
+      {menu.map(m=>{
+        if(m.pages.map(p=>p.alias).includes(router.asPath.split('/')[2])){
+           m.isOpened=true;
+        }
+        return(
         <div key={m._id.secondCategory}>
-<div className={cn(styles.secondLevel)}>{m._id.secondCategory}</div>
+<div className={cn(styles.secondLevel)} onClick={()=>secondLevelOpen(m._id.secondCategory)}>{m._id.secondCategory}</div>
 <div className={cn(styles.secondLevelBlock,{
   [styles.secondLevelBlockOpened]:m.isOpened
 })}>
   {buildThirdLevel(m.pages,menuItem.route)}
 </div>
         </div>
-      ))}
+  );})}
       </div>
     );
   };
@@ -85,7 +102,7 @@ export const Menu = (): JSX.Element => {
       <>
       {pages.map(p=>(
         <Link key={p._id} href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel,{
-          [styles.thirdLevelActive]:false
+          [styles.thirdLevelActive]:`/${route}/${p.alias}`==router.asPath
         })}>
           {p.title}
         </Link>
