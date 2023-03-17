@@ -10,7 +10,6 @@ import { firstLevelMenu } from "@/helpers/helpers";
 
 function Course({ menu,page,products }: CourseProps): JSX.Element {
 
-
   return(
     <>
      {products && products.map(p=><span key={p._id}>{p.title}</span>)} 
@@ -32,7 +31,7 @@ export const getStaticPaths:GetStaticPaths=async()=>{
   return{
     paths,
     fallback:true
-  }
+  };
 };
 
 export const getStaticProps: GetStaticProps<CourseProps> = async ({params}:GetStaticPropsContext<ParsedUrlQuery>) => {
@@ -49,29 +48,41 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({params}:GetSt
       notFound:true
     };
   }
-  const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory:firstLevelMenuItem.id}
-  );
 
-  const { data: page } = await axios.get<TopPageModel>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/byAlias/"+params.alias
-  );
-
-  const { data: products } = await axios.post<ProductModel[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/product/find",{
-      category:page.category,
-      limit:10
+  try{
+    const { data: menu } = await axios.post<MenuItem[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory:firstLevelMenuItem.id}
+    );
+  if(menu.length==0){
+    return{
+      notFound:true
+    };
   }
-  );
-
-  return {
-    props: {
-      menu,
-      firstCategory:firstLevelMenuItem.id,
-      page,
-      products
-    },
-  };
+    const { data: page } = await axios.get<TopPageModel>(
+      process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/byAlias/"+params.alias
+    );
+  
+    const { data: products } = await axios.post<ProductModel[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + "/api/product/find",{
+        category:page.category,
+        limit:10
+    }
+    );
+  
+    return {
+      props: {
+        menu,
+        firstCategory:firstLevelMenuItem.id,
+        page,
+        products
+      },
+    };
+  } catch{
+    return{
+      notFound:true
+    }; 
+  }
+  
 };
 
 interface CourseProps extends Record<string, unknown> {
