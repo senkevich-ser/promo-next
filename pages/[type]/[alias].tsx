@@ -6,13 +6,19 @@ import { TopLevelCategory, TopPageModel } from "@/interfaces/page.interface";
 import { ProductModel } from "@/interfaces/product.interface";
 import { ParsedUrlQuery } from "querystring";
 import { firstLevelMenu } from "@/helpers/helpers";
+import { Htag } from "@/components";
+import Head from "next/head";
 
 
-function Course({ menu,page,products }: CourseProps): JSX.Element {
+function Course({ products,title }: CourseProps): JSX.Element {
 
   return(
     <>
-     {products && products.map(p=><span key={p._id}>{p.title}</span>)} 
+    <Head><title>{title}</title></Head>
+    <Htag tag={'h1'}>{title}</Htag>
+    <ul>
+     {products && products.map(p=><li key={p._id}>{p.title}</li>)} 
+     </ul>
     </>
   );
 }
@@ -74,7 +80,8 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({params}:GetSt
         menu,
         firstCategory:firstLevelMenuItem.id,
         page,
-        products
+        products,
+        title:page.title
       },
     };
   } catch{
@@ -90,4 +97,5 @@ interface CourseProps extends Record<string, unknown> {
   firstCategory: TopLevelCategory;
   page:TopPageModel;
   products:ProductModel[];
+  title:string;
 }

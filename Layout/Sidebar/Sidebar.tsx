@@ -4,10 +4,10 @@ import cn from "classnames";
 import { Menu } from "../Menu/Menu";
 
 export const Sidebar = ({
-  ...props
+  className,...props
 }: SidebarProps): JSX.Element => {
   return (
-      <div
+      <div className={cn(className,styles.sidebar)}
         {...props}
       >
        <Menu/>

@@ -3,8 +3,6 @@ import cn from "classnames";
 import { useContext } from "react";
 import { AppContext } from "@/context/app.context";
 import { FirstLevelMenuItem, PageItem } from "@/interfaces/menu.interface";
-
-import { TopLevelCategory } from "@/interfaces/page.interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { firstLevelMenu } from "@/helpers/helpers";
