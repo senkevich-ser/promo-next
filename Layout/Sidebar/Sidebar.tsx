@@ -2,6 +2,8 @@ import { SidebarProps } from "./Sidebar.props";
 import styles from "./Sidebar.module.css";
 import cn from "classnames";
 import { Menu } from "../Menu/Menu";
+import Logo from '../logo.svg';
+import { Htag } from "@/components";
 
 export const Sidebar = ({
   className,...props
@@ -10,6 +12,8 @@ export const Sidebar = ({
       <div className={cn(className,styles.sidebar)}
         {...props}
       >
+        <Logo/>
+        <Htag tag={'h3'}>Поиск</Htag>
        <Menu/>
     </div>
   );
