@@ -4,6 +4,7 @@ import cn from "classnames";
 import { Menu } from "../Menu/Menu";
 import Logo from '../logo.svg';
 import { Htag } from "@/components";
+import Link from "next/link";
 
 export const Sidebar = ({
   className,...props
@@ -11,8 +12,9 @@ export const Sidebar = ({
   return (
       <div className={cn(className,styles.sidebar)}
         {...props}
-      >
-        <Logo/>
+      ><Link href={'/'}>
+        <Logo className={styles.logo}/>
+        </Link>
         <Htag tag={'h3'}>Поиск</Htag>
        <Menu/>
     </div>
