@@ -14,14 +14,9 @@ function TopPage({
   firstCategory,
   page,
   products,
-  title,
 }: TopPageProps): JSX.Element {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <Htag tag={"h1"}>{title}</Htag>
         <TopPageComponent
           firstCategory={firstCategory}
           page={page}
@@ -110,5 +105,4 @@ interface TopPageProps extends Record<string, unknown> {
   firstCategory: TopLevelCategory;
   page: TopPageModel;
   products: ProductModel[];
-  title: string;
 }
