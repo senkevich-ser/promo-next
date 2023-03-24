@@ -3,6 +3,7 @@ import Head from "next/head";
 import styles from "./TopPageComponent.module.css";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import cn from 'classnames';
+import { TopLevelCategory } from "@/interfaces/page.interface";
 
 export const TopPageComponent = ({
   firstCategory,
@@ -24,7 +25,7 @@ export const TopPageComponent = ({
       <Htag tag={"h2"}>Вакансии - {page.category}</Htag>
       <Tag color="red" size="l">hh.ru</Tag>
       </div>
-      <HhData {...page.hh}/>
+      {firstCategory==TopLevelCategory.Courses && <HhData {...page.hh}/>}
     </div>
     
   );

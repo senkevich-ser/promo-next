@@ -2,19 +2,43 @@ import { HhDataProps } from "./HhData.props";
 import styles from "./HhData.module.css";
 import cn from "classnames";
 import { Card } from "../Card/Card";
+import RateIcon from './rate.svg';
 
-export const HhData = ({
-  count,
-  ...props
-}: HhDataProps): JSX.Element => {
+export const HhData = ({ count, juniorSalary,middleSalary, seniorSalary, ...props }: HhDataProps): JSX.Element => {
   return (
-    <div
-      className={cn(styles.hh)}
-      {...props}
-    >
-      <Card color="white" className={styles.vacancyCard}>
-        <div className={styles.vacancyTitle}>Всего вакансий</div>
+    <div className={cn(styles.hh)} {...props}>
+      <Card className={styles.vacancy}>
+        <div className={styles.title}>Всего вакансий</div>
         <div className={styles.vacancyValue}>{count}</div>
+      </Card>
+      <Card className={styles.salary}>
+        <div className={styles.salaryCard}>
+          <div className={styles.title}>Начальный</div>
+          <div className={styles.salaryValue}>{juniorSalary}</div>
+          <div className={styles.salaryRate}>
+            <RateIcon className={styles.filled}/>
+            <RateIcon/>
+            <RateIcon/>
+          </div>
+        </div>
+        <div className={styles.salaryCard}>
+          <div className={styles.title}>Средний</div>
+          <div className={styles.salaryValue}>{middleSalary}</div>
+          <div className={styles.salaryRate}>
+            <RateIcon className={styles.filled}/>
+            <RateIcon className={styles.filled}/>
+            <RateIcon/>
+          </div>
+        </div>
+        <div className={styles.salaryCard}>
+          <div className={styles.title}>Профессионал</div>
+          <div className={styles.salaryValue}>{seniorSalary}</div>
+          <div className={styles.salaryRate}>
+            <RateIcon className={styles.filled}/>
+            <RateIcon className={styles.filled}/>
+            <RateIcon className={styles.filled}/>
+          </div>
+        </div>
       </Card>
     </div>
   );
