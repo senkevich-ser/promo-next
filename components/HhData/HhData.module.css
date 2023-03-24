@@ -21,12 +21,13 @@
 }
 
 .vacancyValue{
+    margin-top: 12px;
+
     font-size: 36px;
     font-weight: 700;
     line-height: 49px;
     color: var(--primary);
     text-align: center;
-    margin-top: 12px;
 }
 
 .salary{
@@ -46,12 +47,13 @@
 }
 
 .salaryValue{
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 35px;
-    text-align: center;
     margin-top: 8px;
     margin-bottom: 12px;
+
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 35px;
+    text-align: center;
 }
 
 .salaryRate{
@@ -59,6 +61,7 @@
     grid-template-columns: 20px 20px 20px;
     gap:10px;
     justify-content: center;
+
     margin-bottom: 17px;
 }
 
