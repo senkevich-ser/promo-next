@@ -5,10 +5,10 @@
 }
 
 .vacancy{
-    display: flex;  
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+    display: grid;  
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-content: start;
 
     padding-top: 20px;
 }
