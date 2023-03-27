@@ -17,11 +17,11 @@ function TopPage({
 }: TopPageProps): JSX.Element {
   return (
     <>
-        <TopPageComponent
+        {page && <TopPageComponent
           firstCategory={firstCategory}
           page={page}
           products={products}
-        />
+        />}
     </>
   );
 }
