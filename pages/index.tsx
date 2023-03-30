@@ -8,7 +8,7 @@ import { MenuItem } from "@/interfaces/menu.interface";
 function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = useState(1);
   return (
-    <>
+    <div style={{marginTop:'20px'}}>
       <Htag tag="h1">Text</Htag>
       <Button appearance="primary" arrow="right">
         Button
@@ -35,7 +35,7 @@ function Home({ menu }: HomeProps): JSX.Element {
         Кнопка
       </Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-    </>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 .wrapper{
-    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 .title{
@@ -16,4 +16,37 @@ justify-items: left;
 
 .hhTitle{
     grid-template-columns: auto 1fr;
+}
+
+.seoText{
+    font-size: 18px;
+}
+
+.seoText h1{
+    margin: 0;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 35px;
+}
+
+.seoText h2{
+    margin-top: 50px;
+    margin-bottom: 25px;
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.seoText h3{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+}
+
+@media (max-width:765px) {
+    .wrapper{
+        padding: 0 15px;
+    }  
 }

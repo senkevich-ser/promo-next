@@ -5,7 +5,7 @@ import { Card } from "../Card/Card";
 import RateIcon from './rate.svg';
 import { priceRu } from "@/helpers/helpers";
 
-export const HhData = ({ count, juniorSalary,middleSalary, seniorSalary, ...props }: HhDataProps): JSX.Element => {
+export const HhData = ({ count, juniorSalary,middleSalary, seniorSalary,updatedAt, ...props }: HhDataProps): JSX.Element => {
   return (
     <div className={cn(styles.hh)} {...props}>
       <Card className={styles.vacancy}>
