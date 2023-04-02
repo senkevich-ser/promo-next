@@ -24,7 +24,7 @@ export const Sort = ({
       [styles.active]:sort==SortEnum.Price
      })}>
    <SortIcon className={styles.sortIcon}/>
-   По цене
+   По&nbsp;цене
      </span>
     </div>
   );
