@@ -1,4 +1,4 @@
-import { Htag, Paragraph, Button, Tag, Rating } from "@/components";
+import { Htag, Paragraph, Button, Tag, Rating, Input } from "@/components";
 import { withLayout } from "@/Layout/Layout";
 import { useState } from "react";
 import axios from "axios";
@@ -35,6 +35,7 @@ function Home({ menu }: HomeProps): JSX.Element {
         Кнопка
       </Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
+      <Input placeholder="Test"/>
     </div>
   );
 }
