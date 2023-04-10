@@ -3,7 +3,7 @@ import styles from "./Sidebar.module.css";
 import cn from "classnames";
 import { Menu } from "../Menu/Menu";
 import Logo from '../logo.svg';
-import { Htag } from "@/components";
+import { Htag, Search } from "@/components";
 import Link from "next/link";
 
 export const Sidebar = ({
@@ -15,7 +15,7 @@ export const Sidebar = ({
       ><Link href={'/'}>
         <Logo className={styles.logo}/>
         </Link>
-        <Htag tag={'h3'}>Поиск</Htag>
+        <Search/>
        <Menu/>
     </div>
   );
