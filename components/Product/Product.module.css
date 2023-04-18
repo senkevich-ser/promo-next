@@ -10,6 +10,7 @@
 .logo {
     grid-column: start/endlogo;
     grid-row: 1 / span 2;
+    margin-bottom: 20px;
 }
 
 .title,
@@ -40,6 +41,7 @@
 
 .feature {
     grid-column: start/middle;
+    margin-bottom: 30px;
 }
 
 .advBlock {
@@ -114,4 +116,40 @@
 .advantagesText{
     margin-top: 5px;
     font-weight: 400;
+}
+
+
+
+.characteristics{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding-right: 60px;
+    gap: 15px;
+}
+
+.characteristicsTitle{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.characteristicsValue{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    align-self: center;
+}
+
+.characteristicsDashed{
+    border-top: 1px dashed var(--grey-light);
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.actions{
+    margin-top: 20px;
+}
+
+.buttomPrimary{
+    margin-right: 20px;
 }
