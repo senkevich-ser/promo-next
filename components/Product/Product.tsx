@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Rating } from "../Rating/Rating";
 import { Tag } from "../Tag/Tag";
 import { Button } from "../Button/Button";
+import { priceRu } from "@/helpers/helpers";
+import { Divider } from "../Divider/Divider";
 
 export const Product= ({
   product,
@@ -19,8 +21,14 @@ export const Product= ({
         <Image src={process.env.NEXT_PUBLIC_DOMAIN+product.image} alt={product.title} width={70} height={70}/>
         </div>
     <div className={styles.title}>{product.title}</div>
-    <div className={styles.price}>{product.price}</div>
-    <div className={styles.credit}>{product.credit}</div>
+    <div className={styles.price}>
+      <div>{priceRu(product.price)}</div>
+      {product.oldPrice && <Tag className={styles.oldPrice} color="green">{priceRu(product.price-product.oldPrice)}</Tag>}
+      </div>
+    <div className={styles.credit}>
+      {priceRu(product.credit)}/
+      <span className={styles.month}>в мес</span>
+      </div>
     <div className={styles.rate}>
       <Rating rating={product.reviewAvg ?? product.initialRating}/>
       </div>
@@ -30,20 +38,20 @@ export const Product= ({
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>в кредит</div>
       <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
-      <div className={styles.hr}><hr/></div>
+      <Divider className={styles.hr}/>
       <div className={styles.description}>{product.description}</div>
       <div className={styles.feature}>фичи</div>
       <div className={styles.advBlock}>
         <div className={styles.advantages}>
-          <div>Преимущества</div>
-          <div>{product.advantages}</div>
+          <div className={styles.advantagesTitle}>Преимущества</div>
+          <div className={styles.advantagesText}>{product.advantages}</div>
         </div>
-        <div className={styles.advantages}>
-          <div>Недостатки</div>
-          <div>{product.disadvantages}</div>
+        <div className={styles.disadvantages}>
+          <div className={styles.advantagesTitle}>Недостатки</div>
+          <div className={styles.advantagesText}>{product.advantages}</div>
         </div>
       </div>
-      <div className={styles.hr}><hr/></div>
+      <Divider className={styles.hr}/>
       <div className={styles.actions}>
         <Button appearance="primary" >Узнать подробнее</Button>
         <Button appearance="ghost" arrow="right">Читать отзывы</Button>

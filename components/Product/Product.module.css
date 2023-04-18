@@ -1,8 +1,8 @@
 .product {
     display: grid;
-    grid-template-columns: [start]70px [endlogo] 30px [starttitle] calc(
-        50% - 100px
-    ) [middle] 1fr [startprice] auto [endprice] 40px [startcredit] auto [endcredit] 40px [startrate] auto [end];
+    grid-template-columns:
+        [start]70px [endlogo] 30px [starttitle] calc(50% - 100px)
+        [middle] 1fr [startprice] auto [endprice] 40px [startcredit] auto [endcredit] 40px [startrate] auto [end];
     margin-bottom: 30px;
     padding: 30px;
 }
@@ -32,14 +32,86 @@
     grid-column: startrate/end;
 }
 
-.hr, .description, .actions{
+.hr,
+.description,
+.actions {
     grid-column: start/end;
 }
 
-.feature{
+.feature {
     grid-column: start/middle;
 }
 
-.advBlock{
+.advBlock {
     grid-column: middle/end;
+}
+
+.logo img {
+    border-radius: 5px;
+}
+
+.title,
+.price,
+.credit,
+.rate {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    white-space: nowrap;
+}
+
+.title {
+    font-weight: 600;
+    white-space: normal;
+}
+
+.oldPrice {
+    margin: 0;
+    margin-top: 3px;
+    align-self: baseline;
+}
+
+.price {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 7px;
+}
+
+.priceTitle,
+.creditTitle,
+.rateTitle,
+.month {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.description {
+    margin: 20px 0 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.advantages{
+    border-left: solid 3px var(--green);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.disadvantages{
+    border-left: solid 3px var(--red);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.advantagesTitle,.advantagesText{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.advantagesText{
+    margin-top: 5px;
+    font-weight: 400;
 }
