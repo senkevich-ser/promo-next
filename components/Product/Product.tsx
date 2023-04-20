@@ -57,7 +57,7 @@ export const Product= ({
           <div className={styles.advantagesText}>{product.disadvantages}</div>
         </div>}
       </div>
-      <Divider className={styles.hr}/>
+      <Divider className={cn(styles.hr,styles.hr2)}/>
       <div className={styles.actions}>
         <Button  className={styles.buttomPrimary} appearance="primary" >Узнать подробнее</Button>
         <Button appearance="ghost" arrow="right">Читать отзывы</Button>
