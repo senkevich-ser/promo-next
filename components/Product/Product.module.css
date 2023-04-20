@@ -56,8 +56,8 @@
 .price,
 .credit,
 .rate {
-    font-weight: 400;
     font-size: 20px;
+    font-weight: 400;
     line-height: 27px;
     white-space: nowrap;
 }
@@ -68,9 +68,9 @@
 }
 
 .oldPrice {
+    align-self: baseline;
     margin: 0;
     margin-top: 3px;
-    align-self: baseline;
 }
 
 .price {
@@ -83,33 +83,33 @@
 .creditTitle,
 .rateTitle,
 .month {
-    font-weight: 300;
     font-size: 14px;
+    font-weight: 300;
     line-height: 19px;
 }
 
 .description {
     margin: 20px 0 15px;
-    font-weight: 400;
     font-size: 16px;
+    font-weight: 400;
     line-height: 24px;
 }
 
 .advantages{
-    border-left: solid 3px var(--green);
-    padding-left: 15px;
     margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: solid 3px var(--green);
 }
 
 .disadvantages{
-    border-left: solid 3px var(--red);
-    padding-left: 15px;
     margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: solid 3px var(--red);
 }
 
 .advantagesTitle,.advantagesText{
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     line-height: 22px;
 }
 
@@ -123,27 +123,27 @@
 .characteristics{
     display: grid;
     grid-template-columns: auto 1fr auto;
-    padding-right: 60px;
     gap: 15px;
+    padding-right: 60px;
 }
 
 .characteristicsTitle{
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     line-height: 32px;
 }
 
 .characteristicsValue{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
     align-self: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
 }
 
 .characteristicsDashed{
-    border-top: 1px dashed var(--grey-light);
     align-self: flex-end;
     margin-bottom: 10px;
+    border-top: 1px dashed var(--grey-light);
 }
 
 .actions{
@@ -152,4 +152,86 @@
 
 .buttomPrimary{
     margin-right: 20px;
+}
+
+@media (max-width:1400px) {
+    .product {
+        grid-template-columns:
+            70px 30px  auto 40px auto  40px  1fr ;
+
+        grid-template-areas: 
+            "logo . title title title title title"
+            "logo . tags tags tags tags tags"
+            "price price price . credit . rate"
+            "priceTitle priceTitle priceTitle . creditTitle . rateTitle"
+            "hr hr hr hr hr hr hr"
+            "description description description description description description description"
+            "feature feature feature feature feature feature feature"
+            "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+            "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+            "actions actions actions actions actions actions actions"
+            ;
+    }
+
+    .logo{
+        grid-area: logo;
+    }
+
+    .title{
+        grid-area: title;
+    }
+
+    .tags{
+        grid-area: tags;
+    }
+
+    .price{
+        grid-area: price;
+    }
+
+    .credit{
+        grid-area: credit;
+    }
+
+    .rate{
+        grid-area: rate;
+    }
+
+    .priceTitle{
+        grid-area: priceTitle;
+    }
+
+    .creditTitle{
+        grid-area: creditTitle;
+    }
+
+    .rateTitle{
+        grid-area: rateTitle;
+    }
+
+    .hr{
+        grid-area: hr;
+    }
+
+    .description{
+        grid-area: description;
+    }
+
+    .feature{
+        grid-area: feature;
+    }
+
+    .advBlock{
+        grid-area: advBlock;
+    }
+    
+    .hr2{
+        grid-area: hr2;
+    }
+
+    .actions{
+        grid-area: actions;
+    }
+
+   
 }

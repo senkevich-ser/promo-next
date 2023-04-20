@@ -16,8 +16,9 @@ export const TopPageComponent = ({
 
   const [{ products: sortedProducts, sort }, dispathSort] = useReducer(
     sortReducer,
-    { products, sort: SortEnum.Rating }
+    { products, sort: SortEnum.Price }
   );
+
 
   const setSort = (sort:SortEnum)=>{
     dispathSort({type:sort});
@@ -36,7 +37,7 @@ export const TopPageComponent = ({
         <Sort sort={sort} setSort={setSort} />
       </div>
       <div className={styles.products}>
-        {sortedProducts && sortedProducts.map((p) => <Product key={p._id} product={p}/>)}
+        {products && products.map((p) => <Product key={p._id} product={p}/>)}
       </div>
       <div className={cn(styles.title, styles.hhTitle)}>
         <Htag tag={"h2"}>Вакансии - {page.category}</Htag>
