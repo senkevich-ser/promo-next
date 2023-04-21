@@ -5,7 +5,7 @@ import { TopPageComponentProps } from "./TopPageComponent.props";
 import cn from "classnames";
 import { TopLevelCategory } from "@/interfaces/page.interface";
 import { SortEnum } from "@/components/Sort/Sort.props";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { sortReducer } from "./sort.reducer";
 
 export const TopPageComponent = ({
@@ -13,15 +13,17 @@ export const TopPageComponent = ({
   page,
   products,
 }: TopPageComponentProps): JSX.Element => {
-
   const [{ products: sortedProducts, sort }, dispathSort] = useReducer(
     sortReducer,
     { products, sort: SortEnum.Price }
   );
 
+  useEffect(() => {
+    dispathSort({ type: "reset", initialState: products });
+  }, [products]);
 
-  const setSort = (sort:SortEnum)=>{
-    dispathSort({type:sort});
+  const setSort = (sort: SortEnum) => {
+    dispathSort({ type: sort });
   };
 
   return (
@@ -37,7 +39,8 @@ export const TopPageComponent = ({
         <Sort sort={sort} setSort={setSort} />
       </div>
       <div className={styles.products}>
-        {products && products.map((p) => <Product key={p._id} product={p}/>)}
+        {sortedProducts &&
+          sortedProducts.map((p) => <Product key={p._id} product={p} />)}
       </div>
       <div className={cn(styles.title, styles.hhTitle)}>
         <Htag tag={"h2"}>Вакансии - {page.category}</Htag>
