@@ -22,7 +22,7 @@
     line-height: 14px;
 }
 
-.host{
+.ghost{
     font-weight: 500;
     background-color: var(--grey-ligh); 
     border: 1px solid var(--grey-light);
