@@ -10,6 +10,7 @@ import { decOfNum, priceRu } from "@/helpers/helpers";
 import { Divider } from "../Divider/Divider";
 import { useState } from "react";
 import { Review } from "../Review/Review";
+import { ReviewForm } from "../ReviewForm/ReviewForm";
 
 export const Product = ({
   product,
@@ -105,8 +106,12 @@ export const Product = ({
         })}
       >
         {product.reviews.map((r) => (
+          <>
           <Review key={r._id} review={r} />
+          <Divider className={cn(styles.hr, styles.hr2)} />
+          </>
         ))}
+        <ReviewForm productId={product._id}/>
       </Card>
     </>
   );
