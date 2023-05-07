@@ -1,12 +1,14 @@
+/* eslint-disable react/display-name */
 import { TextareaProps } from "./Textarea.props";
 import styles from "./Textarea.module.css";
 import cn from "classnames";
+import { ForwardedRef, forwardRef } from "react";
 
-export const Textarea = ({
+export const Textarea = forwardRef(({
   className,
   ...props
-}: TextareaProps): JSX.Element => {
+}: TextareaProps,ref:ForwardedRef<HTMLTextAreaElement>): JSX.Element => {
   return (
-   <textarea className={cn(styles.textarea,className)} {...props}/>
+   <textarea className={cn(styles.textarea,className)} ref={ref} {...props}/>
   );
-};
+});
