@@ -28,15 +28,28 @@
     margin-left: 15px;
 }
 
-.success{
+.panel{
 	position: relative;
 
 	margin-top: 20px;
 	padding: 20px;
 
-	background: var(--green-light);
 	border-radius: 5px;
 }
+
+.success{
+	background: var(--green-light);
+}
+
+.error{
+	background: var(--red-light);
+}
+
+.error .successicon path{
+    stroke: var(--red);
+}
+
+
 
 .successicon{
 	cursor: pointer;
